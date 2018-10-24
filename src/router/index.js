@@ -30,18 +30,17 @@ export const constantRouterMap = [
     path: '/',
     component: Layout,
     redirect: '/dashboard',
-    name: 'Dashboard',
     meta: { title: '首页' },
     hidden: true,
     children: [{
       path: 'dashboard',
       component: () => import('@/views/dashboard/index'),
-      meta: { title: '首页' }
+      meta: { title: '首页' },
+      name:'Dashboard',
     }]
   },{
     path: '/historicalLine',
     component: Layout,
-    name: 'historicalLine',
     hidden: true,
     meta: { title: '历史曲线' },
     children: [{
@@ -103,7 +102,7 @@ export const constantRouterMap = [
         path: 'operationMonitor',
         component: () => import('@/views/equipMonitor/operationMonitor'), // Parent router-view
         name: 'operationMonitor',
-        meta: { title: '设备运行监控',icon:'runMonitor' }
+        meta: { title: '设备信息管理',icon:'runMonitor' }
       },
       {
         path: 'runNote',
@@ -116,7 +115,13 @@ export const constantRouterMap = [
         component: () => import('@/views/equipMonitor/outputNote'),
         name:'outputNote',
         meta: { title: '设备产量记录',icon:'chan' }
-      }
+      },
+      {
+        path: 'alarmNote',
+        component: () => import('@/views/equipMonitor/alarmNote'), // Parent router-view
+        name: 'operationMonitor',
+        meta: { title: '设备报警记录',icon:'runMonitor' }
+      },
     ]
   },
   {
